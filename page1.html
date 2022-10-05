@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <style>
+    #enq { display: none; }
+  </style>
+</head>
+<body>
+<p>page1。3秒後にアンケートを表示します。</p>
+
+<div id="enq">
+  <p>アンケート</p>
+  <button>送信</button>
+</div>
+
+<script type="text/javascript">
+$(function() {
+  setTimeout(function() {
+    $("#enq").show();
+  }, 3000);
+  $("button").click(function() {
+    console.log("b");
+    location.href = "page2.html";
+  });
+});
+</script>
+</body>
+</html>
