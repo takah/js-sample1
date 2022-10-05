@@ -15,12 +15,13 @@
 </div>
 
 <script type="text/javascript">
-$(function() {
-  setTimeout(function() {
+$(() => {
+  let proxy = window.open("https://www.yahoo.co.jp", "", "popup,width=500,height=700,left=500,top=0,menubar=no,toolbar=no,location=no,status=no");
+  setTimeout(() => {
     $("#enq").show();
+    proxy.close();
   }, 3000);
-  $("button").click(function() {
-    console.log("b");
+  $("button").click(() => {
     location.href = "page2.html";
   });
 });
