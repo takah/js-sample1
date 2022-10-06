@@ -7,23 +7,22 @@
   </style>
 </head>
 <body>
-<p>page1。3秒後にアンケートを表示します。</p>
-
-<div id="enq">
-  <p>アンケート</p>
-  <button>送信</button>
-</div>
-
 <script type="text/javascript">
 $(() => {
-  let proxy = window.open("https://www.yahoo.co.jp", "", "popup,width=500,height=700,left=500,top=0,menubar=no,toolbar=no,location=no,status=no");
+  let siteWin = window.open("https://www.yahoo.co.jp", "", "popup,width=500,height=700,left=100,top=0,menubar=no,toolbar=no,location=no,status=no");
+
   setTimeout(() => {
-    $("#enq").show();
-    proxy.close();
+    let enqWin = window.open("page2.html", "", "popup,width=500,height=700,left=500,top=0,menubar=no,toolbar=no,location=no,status=no");
+    let interval = window.setInterval(() => {
+      try {
+        if (enqWin == null || enqWin.closed) {
+          window.clearInterval(interval);
+          siteWin.close();
+          console.log("closed");
+        }
+      } catch(e) {}
+    }, 1000);
   }, 3000);
-  $("button").click(() => {
-    location.href = "page2.html";
-  });
 });
 </script>
 </body>

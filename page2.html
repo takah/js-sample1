@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
 <body>
-page2
+<div id="enq">
+  <p>アンケート</p>
+  <button>送信</button>
+</div>
+
+<script type="text/javascript">
+$(() => {
+  $("button").click(() => {
+    // ここにアンケート結果を保存する処理を書く
+    window.close();
+  });
+});
+</script>
 </body>
 </html>
